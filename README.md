@@ -81,7 +81,7 @@ DR_PORTFOLIO/
 ├── index.html          # Primary production entrypoint (Complete single-page portfolio)
 ├── LOGO.png            # SVG-rendered high-res brand logo & favicon
 ├── PROFILE PIC.png     # Editorial portrait photo (Hero & Navbar)
-├── Resume_DR.pdf       # Official resume document (Linked & Modal viewable)
+├── Divyansh_Rajat_Resume.pdf  # Official resume document (Linked & Modal viewable)
 ├── DESIGN.md           # Design tokens, color palette, and typography specifications
 ├── .gitignore          # Git exclusion rules for OS and IDE artifacts
 └── README.md           # Documentation, quick start, and deployment guide
