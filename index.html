@@ -210,42 +210,44 @@
 
   <!-- STICKY TOP NAVIGATION (Architectural Light Frosted Glass) -->
   <header
-    class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-outline-warm shadow-museum-subtle transition-all">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 h-16 flex items-center justify-between gap-4">
+    class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-outline-warm shadow-museum-subtle transition-all">
+    <div class="w-full px-4 sm:px-8 lg:px-12 xl:px-16 h-16 sm:h-20 flex items-center justify-between gap-4">
 
       <!-- Brand Identity with Local Logo -->
-      <div class="flex items-center gap-3">
-        <a class="flex items-center gap-2.5 group" href="#">
-          <img alt="Divyansh Rajat Logo"
-            class="h-9 w-9 object-contain rounded-md transition-transform group-hover:scale-105 shadow-sm"
-            src="./LOGO.png" onerror="this.src='./LOGO.png'">
-          <div class="flex flex-col">
+      <div class="flex items-center gap-3 shrink-0">
+        <a class="flex items-center gap-3 group" href="#">
+          <div
+            class="w-11 h-11 sm:w-13 sm:h-13 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200/80 p-1.5 flex items-center justify-center shadow-museum-subtle group-hover:border-primary group-hover:shadow-md transition-all shrink-0">
+            <img alt="Divyansh Rajat Logo"
+              class="w-full h-full object-contain transition-transform group-hover:scale-105"
+              src="./LOGO.png" onerror="this.src='./LOGO.png'">
+          </div>
+          <div class="flex flex-col min-w-0">
             <span
-              class="font-display font-bold text-base tracking-tight text-on-surface group-hover:text-primary transition-colors">Divyansh
+              class="font-display font-extrabold text-base sm:text-lg tracking-tight text-on-surface group-hover:text-primary transition-colors whitespace-nowrap">Divyansh
               Rajat</span>
-            <span class="font-mono text-[10px] text-primary tracking-wider uppercase font-semibold">AI/ML &amp;
-              Backend Developer</span>
+            <span class="font-mono text-[10px] sm:text-[11px] text-primary tracking-wider uppercase font-semibold whitespace-nowrap">AI/ML &amp; Backend Developer</span>
           </div>
         </a>
       </div>
 
       <!-- Desktop Nav Links -->
-      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-on-surface-variant">
-        <a class="nav-link hover:text-primary transition-colors text-primary font-semibold" href="#">Home</a>
-        <a class="nav-link hover:text-primary transition-colors" href="#about">About</a>
-        <a class="nav-link hover:text-primary transition-colors flex items-center gap-1.5" href="#projects">
+      <nav class="hidden lg:flex items-center gap-5 xl:gap-8 text-sm font-medium text-on-surface-variant shrink-0">
+        <a class="nav-link hover:text-primary transition-colors text-primary font-semibold whitespace-nowrap" href="#">Home</a>
+        <a class="nav-link hover:text-primary transition-colors whitespace-nowrap" href="#about">About</a>
+        <a class="nav-link hover:text-primary transition-colors flex items-center gap-1.5 whitespace-nowrap" href="#projects">
           <span>Projects &amp; Repos</span>
           <span class="px-2 py-0.5 rounded-full bg-primary-subtle text-primary text-[10px] font-mono font-bold">6</span>
         </a>
-        <a class="nav-link hover:text-primary transition-colors" href="#research">Research</a>
-        <a class="nav-link hover:text-primary transition-colors" href="#skills">Skills</a>
-        <a class="nav-link hover:text-primary transition-colors" href="#achievements">Achievements</a>
-        <a class="nav-link hover:text-primary transition-colors" href="#contact">Contact</a>
+        <a class="nav-link hover:text-primary transition-colors whitespace-nowrap" href="#research">Research</a>
+        <a class="nav-link hover:text-primary transition-colors whitespace-nowrap" href="#skills">Skills</a>
+        <a class="nav-link hover:text-primary transition-colors whitespace-nowrap" href="#achievements">Achievements</a>
+        <a class="nav-link hover:text-primary transition-colors whitespace-nowrap" href="#contact">Contact</a>
       </nav>
 
       <!-- Desktop Actions -->
-      <div class="flex items-center gap-3">
-        <a class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-white border border-outline-variant hover:border-primary text-on-surface text-xs font-mono transition-all shadow-museum-subtle"
+      <div class="flex items-center gap-2.5 sm:gap-3 shrink-0">
+        <a class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-white border border-outline-variant hover:border-primary text-on-surface text-xs font-mono transition-all shadow-museum-subtle whitespace-nowrap"
           href="https://github.com/divyanshrajat" rel="noopener noreferrer" target="_blank" title="GitHub Profile">
           <span class="material-symbols-outlined text-[16px] text-primary">terminal</span>
           <span>GitHub (6 Repos)</span>
@@ -253,7 +255,7 @@
 
         <!-- View Resume Button (Triggers Resume Modal) -->
         <button onclick="openResumeModal()"
-          class="px-4 py-1.5 rounded-lg bg-primary hover:bg-primary-hover text-white text-xs font-semibold font-mono transition-all shadow-sm shadow-primary/20 flex items-center gap-1.5">
+          class="px-4 py-2 rounded-lg bg-primary hover:bg-primary-hover text-white text-xs font-semibold font-mono transition-all shadow-sm shadow-primary/20 flex items-center gap-1.5 whitespace-nowrap">
           <span class="material-symbols-outlined text-[14px]">description</span>
           <span>View Resume</span>
         </button>
@@ -261,7 +263,7 @@
         <!-- Profile Avatar with Local Picture -->
         <a class="relative hidden sm:block group" href="#about" title="About Divyansh Rajat">
           <img alt="Divyansh Rajat"
-            class="w-9 h-9 rounded-full object-cover object-top ring-2 ring-primary/20 group-hover:ring-primary transition-all shadow-sm"
+            class="w-10 h-10 rounded-full object-cover object-top ring-2 ring-primary/20 group-hover:ring-primary transition-all shadow-sm"
             src="./PROFILE PIC.png" onerror="this.src='./PROFILE PIC.png'">
           <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full"></span>
         </a>
@@ -304,14 +306,14 @@
     </div>
   </header>
 
-  <main class="pt-16">
+  <main class="pt-16 sm:pt-20">
 
     <!-- ============================================================ -->
     <!-- HERO SECTION (Modern Classic Architectural Canvas)          -->
     <!-- ============================================================ -->
     <section
       class="relative overflow-hidden pt-12 pb-20 lg:py-24 border-b border-outline-warm bg-gradient-to-b from-white via-background to-background">
-      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
           <!-- Left Column: Bio & Calls to Action -->
@@ -473,7 +475,7 @@
     <!-- PROJECTS & REPOSITORIES SECTION: ALL 6 REPOSITORIES INCLUDED -->
     <!-- ============================================================ -->
     <section class="py-20 bg-background-alt border-b border-outline-warm" id="projects">
-      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
 
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
@@ -1517,7 +1519,7 @@
     <!-- ABOUT ME & ACADEMIC DOSSIER SECTION        -->
     <!-- ========================================== -->
     <section class="py-20 bg-background border-b border-outline-warm" id="about">
-      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div class="flex flex-col gap-2 mb-10">
           <span class="font-mono text-xs uppercase tracking-widest text-primary font-semibold">02 // Academic
             Dossier</span>
@@ -1682,7 +1684,7 @@
     <!-- RESEARCH AND PUBLICATIONS                  -->
     <!-- ========================================== -->
     <section class="py-20 bg-background-alt border-b border-outline-warm" id="research">
-      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div class="flex flex-col gap-2 mb-10">
           <span class="font-mono text-xs uppercase tracking-widest text-primary font-semibold">03 // Scholarly
             Inquiry</span>
@@ -1780,7 +1782,7 @@
     <!-- TECHNICAL SKILLS MATRIX                    -->
     <!-- ========================================== -->
     <section class="py-20 bg-background border-b border-outline-warm" id="skills">
-      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
           <div>
             <div class="inline-flex items-center gap-2 mb-2">
@@ -2111,7 +2113,7 @@
     <!-- EDUCATION, CERTIFICATIONS & ACHIEVEMENTS   -->
     <!-- ========================================== -->
     <section class="py-20 bg-background-alt border-b border-outline-warm" id="achievements">
-      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div class="flex flex-col gap-2 mb-10">
           <span class="font-mono text-xs uppercase tracking-widest text-primary font-semibold">05 // Track Record</span>
           <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-on-surface tracking-tight">Credentials,
@@ -2252,7 +2254,7 @@
     <!-- RESUME & CONTACT SECTION                   -->
     <!-- ========================================== -->
     <section class="py-20 bg-background" id="contact">
-      <div class="max-w-7xl mx-auto px-6 lg:px-12" id="resume">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-12" id="resume">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
           <!-- Contact Channels -->
@@ -2421,7 +2423,7 @@
 
   <!-- FOOTER (Modern Light Architectural) -->
   <footer class="w-full bg-[#0B0F19] text-[#94A3B8] border-t border-[#1E293B] pt-16 pb-12 relative z-10">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#1E293B]">
 
         <div class="lg:col-span-4 flex flex-col gap-4">
