@@ -1,4 +1,4 @@
-# Divyansh Rajat — Systems Engineer, AI/ML & Research Dossier
+# Divyansh Rajat — AI/ML & Backend Developer | Systems & Research Dossier
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Website-1A56DB?style=for-the-badge&logo=github)](https://divyanshrajat.github.io/DR_Portfolio/)
 [![SIH 2026 Finalist](https://img.shields.io/badge/Smart%20India%20Hackathon-2026%20National%20Finalist-0F766E?style=for-the-badge&logo=shield)](https://github.com/divyanshrajat/NyayaVault)
