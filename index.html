@@ -45,6 +45,28 @@
 
   <!-- Tailwind CSS CDN with configuration -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <!-- ============================================== -->
+  <!-- HIGH-RESOLUTION IMAGE LIGHTBOX MODAL          -->
+  <!-- ============================================== -->
+  <div id="imageLightboxModal"
+    class="fixed inset-0 z-[120] bg-slate-950/90 backdrop-blur-md hidden flex flex-col items-center justify-center p-4 sm:p-6"
+    onclick="if(event.target === this) closeImageLightbox()">
+    <div class="w-full max-w-5xl flex items-center justify-between pb-3 text-white">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-blue-400">desktop_windows</span>
+        <span id="lightboxCaption" class="font-display font-semibold text-sm">System UI/UX Screenshot</span>
+      </div>
+      <button onclick="closeImageLightbox()"
+        class="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+    </div>
+    <div class="max-w-5xl max-h-[85vh] overflow-hidden rounded-2xl border border-white/20 shadow-2xl bg-black flex items-center justify-center">
+      <img id="lightboxImage" src="" alt="Full view" class="w-full h-auto max-h-[80vh] object-contain">
+    </div>
+  </div>
+
   <script>
     tailwind.config = {
       theme: {
@@ -179,6 +201,45 @@
       animation: nodePulse 2s ease-in-out infinite;
     }
 
+    
+    /* Media Hub Tabs and Transitions */
+    .media-tab-btn {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .media-tab-btn.active {
+      background-color: #1A56DB !important;
+      color: #ffffff !important;
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+    .media-tab-btn.active-emerald {
+      background-color: #059669 !important;
+      color: #ffffff !important;
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+    .media-tab-btn.active-teal {
+      background-color: #0D9488 !important;
+      color: #ffffff !important;
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+    .media-tab-btn.active-purple {
+      background-color: #9333EA !important;
+      color: #ffffff !important;
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+    .media-tab-btn.active-amber {
+      background-color: #D97706 !important;
+      color: #ffffff !important;
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+    .aspect-video {
+      aspect-ratio: 16 / 9;
+    }
+
     /* Toast Notification */
     #toast {
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
@@ -217,10 +278,10 @@
       <div class="flex items-center gap-3 shrink-0">
         <a class="flex items-center gap-3 group" href="#">
           <div
-            class="w-11 h-11 sm:w-13 sm:h-13 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200/80 p-1.5 flex items-center justify-center shadow-museum-subtle group-hover:border-primary group-hover:shadow-md transition-all shrink-0">
+            class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200/80 p-1 flex items-center justify-center shadow-museum-subtle group-hover:border-primary group-hover:shadow-md transition-all shrink-0">
             <img alt="Divyansh Rajat Logo"
               class="w-full h-full object-contain transition-transform group-hover:scale-105"
-              src="./LOGO.png" onerror="this.src='./LOGO.png'">
+              src="./assets/logo-icon.png" onerror="this.src='./LOGO.png'">
           </div>
           <div class="flex flex-col min-w-0">
             <span
@@ -263,9 +324,9 @@
         <!-- Profile Avatar with Local Picture -->
         <a class="relative hidden sm:block group" href="#about" title="About Divyansh Rajat">
           <img alt="Divyansh Rajat"
-            class="w-10 h-10 rounded-full object-cover object-top ring-2 ring-primary/20 group-hover:ring-primary transition-all shadow-sm"
-            src="./PROFILE PIC.png" onerror="this.src='./PROFILE PIC.png'">
-          <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full"></span>
+            class="w-11 h-11 rounded-full object-cover ring-2 ring-primary/30 group-hover:ring-primary transition-all shadow-sm"
+            src="./assets/profile-avatar.png" onerror="this.src='./PROFILE PIC.png'">
+          <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full"></span>
         </a>
 
         <!-- Mobile Menu Toggle Button -->
@@ -471,6 +532,33 @@
       </div>
     </section>
 
+
+    <!-- ============================================== -->
+    <!-- PHILOSOPHICAL MONOGRAPH 01: SYSTEMS SIMPLICITY -->
+    <!-- ============================================== -->
+    <section class="py-10 bg-white border-b border-outline-warm relative overflow-hidden">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+        <div class="relative p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-blue-50/60 via-surface to-indigo-50/50 border border-blue-200/70 shadow-museum flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div class="flex items-start gap-4 max-w-3xl">
+            <div class="w-11 h-11 rounded-xl bg-blue-600/10 border border-blue-500/20 text-blue-600 flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-2xl">format_quote</span>
+            </div>
+            <div>
+              <p class="font-display font-medium text-base sm:text-lg text-on-surface leading-relaxed italic">
+                “Simplicity is prerequisite for reliability. The computing scientist's main challenge is not to get confused by the complexities of his own making.”
+              </p>
+              <div class="flex flex-wrap items-center gap-2 mt-2.5 text-xs font-mono">
+                <span class="font-bold text-primary">Edsger W. Dijkstra</span>
+                <span class="text-on-surface-muted">•</span>
+                <span class="text-on-surface-variant">Turing Award Laureate &amp; Distributed Systems Pioneer</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- ============================================================ -->
     <!-- PROJECTS & REPOSITORIES SECTION: ALL 6 REPOSITORIES INCLUDED -->
     <!-- ============================================================ -->
@@ -555,10 +643,71 @@
               class="absolute top-0 left-0 right-0 h-1.5 rounded-t-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
             </div>
 
-            <!-- Animated Architecture Schema SVG -->
-            <div
-              class="w-full h-24 rounded-xl bg-gradient-to-r from-slate-950 via-[#0d1629] to-slate-950 p-2 overflow-hidden border border-blue-900/50 relative">
-              <svg class="w-full h-full" viewBox="0 0 520 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Interactive Media Hub: UI/UX Preview, Video Demo & Architecture -->
+            <div class="w-full rounded-xl overflow-hidden border border-blue-900/50 bg-slate-950 flex flex-col shadow-inner">
+              <!-- Tab Bar -->
+              <div class="flex items-center justify-between px-3 py-2 bg-slate-900/90 border-b border-slate-800 text-[11px] font-mono">
+                <div class="flex items-center gap-1">
+                  <button type="button" onclick="switchMediaTab('checkrealityai', 'screenshot')" id="btn-checkrealityai-screenshot"
+                    class="media-tab-btn active px-2.5 py-1 rounded bg-blue-600 text-white font-semibold flex items-center gap-1 transition-all">
+                    <span class="material-symbols-outlined text-[13px]">desktop_windows</span>
+                    <span>UI/UX Preview</span>
+                  </button>
+                  <button type="button" onclick="switchMediaTab('checkrealityai', 'video')" id="btn-checkrealityai-video"
+                    class="media-tab-btn px-2.5 py-1 rounded text-slate-400 hover:text-white hover:bg-slate-800 flex items-center gap-1 transition-all">
+                    <span class="material-symbols-outlined text-[13px] text-red-500">play_circle</span>
+                    <span>Video Demo</span>
+                  </button>
+                  <button type="button" onclick="switchMediaTab('checkrealityai', 'schema')" id="btn-checkrealityai-schema"
+                    class="media-tab-btn px-2.5 py-1 rounded text-slate-400 hover:text-white hover:bg-slate-800 flex items-center gap-1 transition-all">
+                    <span class="material-symbols-outlined text-[13px] text-cyan-400">account_tree</span>
+                    <span>Architecture</span>
+                  </button>
+                </div>
+                <span class="hidden sm:inline-flex items-center gap-1 text-[10px] text-emerald-400 font-mono">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  Interactive
+                </span>
+              </div>
+
+              <!-- Panels -->
+              <div id="panel-checkrealityai-screenshot" class="relative group/img overflow-hidden aspect-video bg-slate-950 flex items-center justify-center">
+                <img src="./assets/projects/checkreality-preview.jpg" alt="CheckReality AI UI/UX Forensics Screenshot"
+                  class="w-full h-full object-cover object-top transition-transform duration-500 group-hover/img:scale-[1.02] cursor-pointer"
+                  onclick="openImageLightbox('./assets/projects/checkreality-preview.jpg', 'CheckReality AI — Multimodal Forensics Dashboard')">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute bottom-2.5 left-3 right-3 flex items-center justify-between pointer-events-none">
+                  <span class="px-2 py-0.5 rounded bg-slate-900/90 text-cyan-400 border border-cyan-800/60 text-[10px] font-mono font-medium backdrop-blur-sm">
+                    Dual Heatmap &amp; 99.60% Bayesian Fusion
+                  </span>
+                  <button type="button" onclick="openImageLightbox('./assets/projects/checkreality-preview.jpg', 'CheckReality AI — Multimodal Forensics Dashboard')"
+                    class="pointer-events-auto px-2 py-1 rounded bg-black/60 hover:bg-blue-600 text-white text-[10px] font-mono flex items-center gap-1 backdrop-blur-sm transition-colors border border-white/10">
+                    <span class="material-symbols-outlined text-[12px]">zoom_in</span>
+                    <span>Expand</span>
+                  </button>
+                </div>
+              </div>
+
+              <div id="panel-checkrealityai-video" class="hidden relative aspect-video bg-slate-950">
+                <div id="yt-wrap-checkrealityai" class="w-full h-full relative">
+                  <div class="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950/40 p-4 text-center cursor-pointer group/yt"
+                    onclick="loadYouTubeVideo('checkrealityai', 'CtP4qNWQWBU')">
+                    <img src="./assets/projects/checkreality-preview.jpg" alt="Video thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-25 group-hover/yt:opacity-35 transition-opacity">
+                    <div class="relative z-10 w-14 h-14 rounded-full bg-red-600 group-hover/yt:bg-red-500 text-white flex items-center justify-center shadow-lg shadow-red-600/40 transform group-hover/yt:scale-110 transition-all">
+                      <span class="material-symbols-outlined text-3xl">play_arrow</span>
+                    </div>
+                    <div class="relative z-10 mt-3">
+                      <p class="font-display font-bold text-sm text-white">Watch CheckReality AI Walkthrough</p>
+                      <p class="font-mono text-[11px] text-slate-300 flex items-center justify-center gap-1 mt-0.5">
+                        <span class="text-red-400 font-semibold">YouTube</span> • <span class="text-emerald-400">Click to Play Stream</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="panel-checkrealityai-schema" class="hidden p-2 bg-gradient-to-r from-slate-950 via-[#0d1629] to-slate-950">
+                <svg class="w-full h-full" viewBox="0 0 520 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="gradBlue1" x1="0" y1="0" x2="1" y2="0">
                     <stop offset="0%" stop-color="#3b82f6"></stop>
@@ -611,6 +760,7 @@
                   <text x="22" y="44" fill="#d1fae5" font-family="monospace" font-size="7">A4 AUDIT CERT</text>
                 </g>
               </svg>
+              </div>
             </div>
 
             <div class="flex flex-col gap-4">
@@ -727,9 +877,17 @@
                 <span class="material-symbols-outlined text-[16px]">code</span>
                 <span>Open Repository</span>
               </a>
-              <button
-                class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-mono font-semibold transition-all shadow-md shadow-blue-500/25"
-                onclick="openModal('checkrealityai')">Inspect Architecture</button>
+              <div class="flex items-center gap-2">
+                <a href="https://youtu.be/CtP4qNWQWBU" target="_blank" rel="noopener noreferrer"
+                  class="px-3 py-2 rounded-lg bg-red-50 hover:bg-red-600 hover:text-white text-red-700 text-xs font-mono font-semibold transition-all border border-red-200 flex items-center gap-1.5 shadow-sm group/ytlink"
+                  title="Watch CheckReality AI Demo Video on YouTube">
+                  <span class="material-symbols-outlined text-[16px] text-red-600 group-hover/ytlink:text-white transition-colors">play_circle</span>
+                  <span>Watch Demo ↗</span>
+                </a>
+                <button
+                  class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-mono font-semibold transition-all shadow-md shadow-blue-500/25"
+                  onclick="openModal('checkrealityai')">Inspect Architecture</button>
+              </div>
             </div>
           </article>
 
@@ -742,10 +900,71 @@
               class="absolute top-0 left-0 right-0 h-1.5 rounded-t-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500">
             </div>
 
-            <!-- Animated Architecture Schema SVG -->
-            <div
-              class="w-full h-24 rounded-xl bg-gradient-to-r from-[#022c22] via-[#042f2e] to-[#022c22] p-2 overflow-hidden border border-emerald-800/50 relative">
-              <svg class="w-full h-full" viewBox="0 0 520 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Interactive Media Hub: UI/UX Preview, Video Demo & Architecture -->
+            <div class="w-full rounded-xl overflow-hidden border border-emerald-800/50 bg-slate-950 flex flex-col shadow-inner">
+              <!-- Tab Bar -->
+              <div class="flex items-center justify-between px-3 py-2 bg-slate-900/90 border-b border-slate-800 text-[11px] font-mono">
+                <div class="flex items-center gap-1">
+                  <button type="button" onclick="switchMediaTab('nyayavault', 'screenshot')" id="btn-nyayavault-screenshot"
+                    class="media-tab-btn active-emerald px-2.5 py-1 rounded bg-emerald-600 text-white font-semibold flex items-center gap-1 transition-all">
+                    <span class="material-symbols-outlined text-[13px]">desktop_windows</span>
+                    <span>UI/UX Preview</span>
+                  </button>
+                  <button type="button" onclick="switchMediaTab('nyayavault', 'video')" id="btn-nyayavault-video"
+                    class="media-tab-btn px-2.5 py-1 rounded text-slate-400 hover:text-white hover:bg-slate-800 flex items-center gap-1 transition-all">
+                    <span class="material-symbols-outlined text-[13px] text-red-500">play_circle</span>
+                    <span>Video Demo</span>
+                  </button>
+                  <button type="button" onclick="switchMediaTab('nyayavault', 'schema')" id="btn-nyayavault-schema"
+                    class="media-tab-btn px-2.5 py-1 rounded text-slate-400 hover:text-white hover:bg-slate-800 flex items-center gap-1 transition-all">
+                    <span class="material-symbols-outlined text-[13px] text-teal-400">account_tree</span>
+                    <span>Architecture</span>
+                  </button>
+                </div>
+                <span class="hidden sm:inline-flex items-center gap-1 text-[10px] text-emerald-400 font-mono">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  SIH 2026 Finalist
+                </span>
+              </div>
+
+              <!-- Panels -->
+              <div id="panel-nyayavault-screenshot" class="relative group/img overflow-hidden aspect-video bg-slate-950 flex items-center justify-center">
+                <img src="./assets/projects/nyayavault-preview.jpg" alt="NyayaVault Live UI/UX Screenshot extracted from Demo Video"
+                  class="w-full h-full object-cover object-top transition-transform duration-500 group-hover/img:scale-[1.02] cursor-pointer"
+                  onclick="openImageLightbox('./assets/projects/nyayavault-preview.jpg', 'NyayaVault — Operational Dashboard (Extracted from Demo Video)')">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute bottom-2.5 left-3 right-3 flex items-center justify-between pointer-events-none">
+                  <span class="px-2 py-0.5 rounded bg-slate-900/90 text-emerald-300 border border-emerald-800/60 text-[10px] font-mono font-medium backdrop-blur-sm">
+                    In-Browser WebGPU &amp; Section 63 BNSS Vault
+                  </span>
+                  <button type="button" onclick="openImageLightbox('./assets/projects/nyayavault-preview.jpg', 'NyayaVault — Operational Dashboard (Extracted from Demo Video)')"
+                    class="pointer-events-auto px-2 py-1 rounded bg-black/60 hover:bg-emerald-600 text-white text-[10px] font-mono flex items-center gap-1 backdrop-blur-sm transition-colors border border-white/10">
+                    <span class="material-symbols-outlined text-[12px]">zoom_in</span>
+                    <span>Expand</span>
+                  </button>
+                </div>
+              </div>
+
+              <div id="panel-nyayavault-video" class="hidden relative aspect-video bg-slate-950">
+                <div id="yt-wrap-nyayavault" class="w-full h-full relative">
+                  <div class="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950/40 p-4 text-center cursor-pointer group/yt"
+                    onclick="loadYouTubeVideo('nyayavault', '5C_TEwFJf4Y')">
+                    <img src="./assets/projects/nyayavault-preview.jpg" alt="Video thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-25 group-hover/yt:opacity-35 transition-opacity">
+                    <div class="relative z-10 w-14 h-14 rounded-full bg-red-600 group-hover/yt:bg-red-500 text-white flex items-center justify-center shadow-lg shadow-red-600/40 transform group-hover/yt:scale-110 transition-all">
+                      <span class="material-symbols-outlined text-3xl">play_arrow</span>
+                    </div>
+                    <div class="relative z-10 mt-3">
+                      <p class="font-display font-bold text-sm text-white">Watch NyayaVault System Demo</p>
+                      <p class="font-mono text-[11px] text-slate-300 flex items-center justify-center gap-1 mt-0.5">
+                        <span class="text-red-400 font-semibold">YouTube</span> • <span class="text-emerald-400">Click to Play Stream</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="panel-nyayavault-schema" class="hidden p-2 bg-gradient-to-r from-[#022c22] via-[#042f2e] to-[#022c22]">
+                <svg class="w-full h-full" viewBox="0 0 520 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g opacity="0.15">
                   <line x1="0" y1="20" x2="520" y2="20" stroke="#10b981" stroke-width="0.5"></line>
                   <line x1="0" y1="40" x2="520" y2="40" stroke="#10b981" stroke-width="0.5"></line>
@@ -789,6 +1008,7 @@
                     font-size="7">BNSS</text>
                 </g>
               </svg>
+              </div>
             </div>
 
             <div class="flex flex-col gap-4">
@@ -899,9 +1119,17 @@
                 <span class="material-symbols-outlined text-[16px]">code</span>
                 <span>Open Repository</span>
               </a>
-              <button
-                class="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-mono font-semibold transition-all shadow-md shadow-emerald-500/25"
-                onclick="openModal('nyayavault')">Inspect Architecture</button>
+              <div class="flex items-center gap-2">
+                <a href="https://youtu.be/5C_TEwFJf4Y" target="_blank" rel="noopener noreferrer"
+                  class="px-3 py-2 rounded-lg bg-red-50 hover:bg-red-600 hover:text-white text-red-700 text-xs font-mono font-semibold transition-all border border-red-200 flex items-center gap-1.5 shadow-sm group/ytlink"
+                  title="Watch NyayaVault System Demo on YouTube">
+                  <span class="material-symbols-outlined text-[16px] text-red-600 group-hover/ytlink:text-white transition-colors">play_circle</span>
+                  <span>Watch Demo ↗</span>
+                </a>
+                <button
+                  class="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-mono font-semibold transition-all shadow-md shadow-emerald-500/25"
+                  onclick="openModal('nyayavault')">Inspect Architecture</button>
+              </div>
             </div>
           </article>
 
@@ -914,9 +1142,71 @@
               class="absolute top-0 left-0 right-0 h-1.5 rounded-t-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-amber-500">
             </div>
 
-            <div
-              class="w-full h-24 rounded-xl bg-gradient-to-r from-[#0f172a] via-[#1e1b4b] to-[#0f172a] p-2 overflow-hidden border border-cyan-800/50 relative">
-              <svg class="w-full h-full" viewBox="0 0 520 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Interactive Media Hub: UI/UX Preview, Video Demo & Architecture -->
+            <div class="w-full rounded-xl overflow-hidden border border-cyan-800/50 bg-slate-950 flex flex-col shadow-inner">
+              <!-- Tab Bar -->
+              <div class="flex items-center justify-between px-3 py-2 bg-slate-900/90 border-b border-slate-800 text-[11px] font-mono">
+                <div class="flex items-center gap-1">
+                  <button type="button" onclick="switchMediaTab('ulpf', 'screenshot')" id="btn-ulpf-screenshot"
+                    class="media-tab-btn active px-2.5 py-1 rounded bg-blue-600 text-white font-semibold flex items-center gap-1 transition-all">
+                    <span class="material-symbols-outlined text-[13px]">desktop_windows</span>
+                    <span>UI/UX Preview</span>
+                  </button>
+                  <button type="button" onclick="switchMediaTab('ulpf', 'video')" id="btn-ulpf-video"
+                    class="media-tab-btn px-2.5 py-1 rounded text-slate-400 hover:text-white hover:bg-slate-800 flex items-center gap-1 transition-all">
+                    <span class="material-symbols-outlined text-[13px] text-red-500">play_circle</span>
+                    <span>Video Demo</span>
+                  </button>
+                  <button type="button" onclick="switchMediaTab('ulpf', 'schema')" id="btn-ulpf-schema"
+                    class="media-tab-btn px-2.5 py-1 rounded text-slate-400 hover:text-white hover:bg-slate-800 flex items-center gap-1 transition-all">
+                    <span class="material-symbols-outlined text-[13px] text-cyan-400">account_tree</span>
+                    <span>Architecture</span>
+                  </button>
+                </div>
+                <span class="hidden sm:inline-flex items-center gap-1 text-[10px] text-cyan-400 font-mono">
+                  <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                  125k EPS Telemetry
+                </span>
+              </div>
+
+              <!-- Panels -->
+              <div id="panel-ulpf-screenshot" class="relative group/img overflow-hidden aspect-video bg-slate-950 flex items-center justify-center">
+                <img src="./assets/projects/ulpf-preview.jpg" alt="ULPF Systems Telemetry Screenshot"
+                  class="w-full h-full object-cover object-top transition-transform duration-500 group-hover/img:scale-[1.02] cursor-pointer"
+                  onclick="openImageLightbox('./assets/projects/ulpf-preview.jpg', 'ULPF — Systems Telemetry Dashboard (NTRO)')">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute bottom-2.5 left-3 right-3 flex items-center justify-between pointer-events-none">
+                  <span class="px-2 py-0.5 rounded bg-slate-900/90 text-cyan-300 border border-cyan-800/60 text-[10px] font-mono font-medium backdrop-blur-sm">
+                    125,000 EPS • Sub-0.8ms Latency • OCSF / ECS
+                  </span>
+                  <button type="button" onclick="openImageLightbox('./assets/projects/ulpf-preview.jpg', 'ULPF — Systems Telemetry Dashboard (NTRO)')"
+                    class="pointer-events-auto px-2 py-1 rounded bg-black/60 hover:bg-blue-600 text-white text-[10px] font-mono flex items-center gap-1 backdrop-blur-sm transition-colors border border-white/10">
+                    <span class="material-symbols-outlined text-[12px]">zoom_in</span>
+                    <span>Expand</span>
+                  </button>
+                </div>
+              </div>
+
+              <div id="panel-ulpf-video" class="hidden relative aspect-video bg-slate-950">
+                <div id="yt-wrap-ulpf" class="w-full h-full relative">
+                  <div class="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950/40 p-4 text-center cursor-pointer group/yt"
+                    onclick="loadYouTubeVideo('ulpf', 'D75t5Tz5PS0')">
+                    <img src="./assets/projects/ulpf-preview.jpg" alt="Video thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-25 group-hover/yt:opacity-35 transition-opacity">
+                    <div class="relative z-10 w-14 h-14 rounded-full bg-red-600 group-hover/yt:bg-red-500 text-white flex items-center justify-center shadow-lg shadow-red-600/40 transform group-hover/yt:scale-110 transition-all">
+                      <span class="material-symbols-outlined text-3xl">play_arrow</span>
+                    </div>
+                    <div class="relative z-10 mt-3">
+                      <p class="font-display font-bold text-sm text-white">Watch ULPF Distributed Middleware Demo</p>
+                      <p class="font-mono text-[11px] text-slate-300 flex items-center justify-center gap-1 mt-0.5">
+                        <span class="text-red-400 font-semibold">YouTube</span> • <span class="text-emerald-400">Click to Play Stream</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="panel-ulpf-schema" class="hidden p-2 bg-gradient-to-r from-[#0f172a] via-[#1e1b4b] to-[#0f172a]">
+                <svg class="w-full h-full" viewBox="0 0 520 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g transform="translate(20, 20)">
                   <rect x="0" y="0" width="80" height="40" rx="5" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5">
                   </rect>
@@ -957,6 +1247,7 @@
                     Streams</text>
                 </g>
               </svg>
+              </div>
             </div>
 
             <div class="flex flex-col gap-4">
@@ -1065,9 +1356,17 @@
                 <span class="material-symbols-outlined text-[16px]">code</span>
                 <span>Open Repository</span>
               </a>
-              <button
-                class="px-4 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high border border-blue-200 text-primary text-xs font-mono font-semibold transition-all"
-                onclick="openModal('ulpf')">Inspect Architecture</button>
+              <div class="flex items-center gap-2">
+                <a href="https://youtu.be/D75t5Tz5PS0" target="_blank" rel="noopener noreferrer"
+                  class="px-3 py-2 rounded-lg bg-red-50 hover:bg-red-600 hover:text-white text-red-700 text-xs font-mono font-semibold transition-all border border-red-200 flex items-center gap-1.5 shadow-sm group/ytlink"
+                  title="Watch ULPF System Demo on YouTube">
+                  <span class="material-symbols-outlined text-[16px] text-red-600 group-hover/ytlink:text-white transition-colors">play_circle</span>
+                  <span>Watch Demo ↗</span>
+                </a>
+                <button
+                  class="px-4 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high border border-blue-200 text-primary text-xs font-mono font-semibold transition-all"
+                  onclick="openModal('ulpf')">Inspect Architecture</button>
+              </div>
             </div>
           </article>
 
@@ -1080,9 +1379,71 @@
               class="absolute top-0 left-0 right-0 h-1.5 rounded-t-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
             </div>
 
-            <div
-              class="w-full h-24 rounded-xl bg-gradient-to-r from-[#1e1b4b] via-[#2e1065] to-[#1e1b4b] p-2 overflow-hidden border border-purple-800/50 relative">
-              <svg class="w-full h-full" viewBox="0 0 520 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Interactive Media Hub: UI/UX Preview, Video Demo & Architecture -->
+            <div class="w-full rounded-xl overflow-hidden border border-purple-800/50 bg-slate-950 flex flex-col shadow-inner">
+              <!-- Tab Bar -->
+              <div class="flex items-center justify-between px-3 py-2 bg-slate-900/90 border-b border-slate-800 text-[11px] font-mono">
+                <div class="flex items-center gap-1">
+                  <button type="button" onclick="switchMediaTab('ai-plagiarism', 'screenshot')" id="btn-ai-plagiarism-screenshot"
+                    class="media-tab-btn active-purple px-2.5 py-1 rounded bg-purple-600 text-white font-semibold flex items-center gap-1 transition-all">
+                    <span class="material-symbols-outlined text-[13px]">desktop_windows</span>
+                    <span>UI/UX Preview</span>
+                  </button>
+                  <button type="button" onclick="switchMediaTab('ai-plagiarism', 'video')" id="btn-ai-plagiarism-video"
+                    class="media-tab-btn px-2.5 py-1 rounded text-slate-400 hover:text-white hover:bg-slate-800 flex items-center gap-1 transition-all">
+                    <span class="material-symbols-outlined text-[13px] text-red-500">play_circle</span>
+                    <span>Video Demo</span>
+                  </button>
+                  <button type="button" onclick="switchMediaTab('ai-plagiarism', 'schema')" id="btn-ai-plagiarism-schema"
+                    class="media-tab-btn px-2.5 py-1 rounded text-slate-400 hover:text-white hover:bg-slate-800 flex items-center gap-1 transition-all">
+                    <span class="material-symbols-outlined text-[13px] text-purple-400">account_tree</span>
+                    <span>Architecture</span>
+                  </button>
+                </div>
+                <span class="hidden sm:inline-flex items-center gap-1 text-[10px] text-purple-400 font-mono">
+                  <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
+                  NLP Engine
+                </span>
+              </div>
+
+              <!-- Panels -->
+              <div id="panel-ai-plagiarism-screenshot" class="relative group/img overflow-hidden aspect-video bg-slate-950 flex items-center justify-center">
+                <img src="./assets/projects/plagiarism-preview.jpg" alt="AI Plagiarism and Writing Analysis UI Screenshot"
+                  class="w-full h-full object-cover object-top transition-transform duration-500 group-hover/img:scale-[1.02] cursor-pointer"
+                  onclick="openImageLightbox('./assets/projects/plagiarism-preview.jpg', 'AI Plagiarism Inspector — Vector Similarity & Stylometrics')">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute bottom-2.5 left-3 right-3 flex items-center justify-between pointer-events-none">
+                  <span class="px-2 py-0.5 rounded bg-slate-900/90 text-purple-300 border border-purple-800/60 text-[10px] font-mono font-medium backdrop-blur-sm">
+                    Dense Vector Space • MiniLM-L6-v2 Embeddings
+                  </span>
+                  <button type="button" onclick="openImageLightbox('./assets/projects/plagiarism-preview.jpg', 'AI Plagiarism Inspector — Vector Similarity & Stylometrics')"
+                    class="pointer-events-auto px-2 py-1 rounded bg-black/60 hover:bg-purple-600 text-white text-[10px] font-mono flex items-center gap-1 backdrop-blur-sm transition-colors border border-white/10">
+                    <span class="material-symbols-outlined text-[12px]">zoom_in</span>
+                    <span>Expand</span>
+                  </button>
+                </div>
+              </div>
+
+              <div id="panel-ai-plagiarism-video" class="hidden relative aspect-video bg-slate-950">
+                <div id="yt-wrap-ai-plagiarism" class="w-full h-full relative">
+                  <div class="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-purple-950/40 p-4 text-center cursor-pointer group/yt"
+                    onclick="loadYouTubeVideo('ai-plagiarism', 'QRrKFV5rzgk')">
+                    <img src="./assets/projects/plagiarism-preview.jpg" alt="Video thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-25 group-hover/yt:opacity-35 transition-opacity">
+                    <div class="relative z-10 w-14 h-14 rounded-full bg-red-600 group-hover/yt:bg-red-500 text-white flex items-center justify-center shadow-lg shadow-red-600/40 transform group-hover/yt:scale-110 transition-all">
+                      <span class="material-symbols-outlined text-3xl">play_arrow</span>
+                    </div>
+                    <div class="relative z-10 mt-3">
+                      <p class="font-display font-bold text-sm text-white">Watch AI Plagiarism Detector Walkthrough</p>
+                      <p class="font-mono text-[11px] text-slate-300 flex items-center justify-center gap-1 mt-0.5">
+                        <span class="text-red-400 font-semibold">YouTube</span> • <span class="text-emerald-400">Click to Play Stream</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="panel-ai-plagiarism-schema" class="hidden p-2 bg-gradient-to-r from-[#1e1b4b] via-[#2e1065] to-[#1e1b4b]">
+                <svg class="w-full h-full" viewBox="0 0 520 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g opacity="0.2">
                   <line x1="50" y1="10" x2="50" y2="70" stroke="#a855f7"></line>
                   <line x1="20" y1="40" x2="500" y2="40" stroke="#a855f7"></line>
@@ -1125,6 +1486,7 @@
                     font-size="7">INDEX</text>
                 </g>
               </svg>
+              </div>
             </div>
 
             <div class="flex flex-col gap-4">
@@ -1226,24 +1588,71 @@
                 <span class="material-symbols-outlined text-[16px]">code</span>
                 <span>Open Repository</span>
               </a>
-              <button
-                class="px-4 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high border border-teal-200 text-secondary text-xs font-mono font-semibold transition-all"
-                onclick="openModal('ai-plagiarism')">Inspect Architecture</button>
+              <div class="flex items-center gap-2">
+                <a href="https://youtu.be/QRrKFV5rzgk" target="_blank" rel="noopener noreferrer"
+                  class="px-3 py-2 rounded-lg bg-red-50 hover:bg-red-600 hover:text-white text-red-700 text-xs font-mono font-semibold transition-all border border-red-200 flex items-center gap-1.5 shadow-sm group/ytlink"
+                  title="Watch PlagX System Demo on YouTube">
+                  <span class="material-symbols-outlined text-[16px] text-red-600 group-hover/ytlink:text-white transition-colors">play_circle</span>
+                  <span>Watch Demo ↗</span>
+                </a>
+                <button
+                  class="px-4 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high border border-teal-200 text-secondary text-xs font-mono font-semibold transition-all"
+                  onclick="openModal('ai-plagiarism')">Inspect Architecture</button>
+              </div>
             </div>
           </article>
 
           <!-- PROJECT 5: Chat-application -->
           <article
-            class="repo-card p-6 sm:p-8 rounded-2xl bg-white border border-outline-warm hover:border-primary transition-all flex flex-col justify-between gap-6 shadow-museum hover:shadow-museum-lg relative group"
+            class="repo-card p-6 sm:p-8 rounded-2xl bg-white border border-outline-warm hover:border-primary transition-all flex flex-col gap-5 shadow-museum hover:shadow-museum-lg relative group"
             data-categories="cybersecurity,backend,fork"
             data-keywords="chat application socket rsa cryptography multithreading python tkinter haldhardwivedi network security">
             <div
               class="absolute top-0 left-0 right-0 h-1.5 rounded-t-2xl bg-gradient-to-r from-rose-500 via-orange-500 to-amber-400">
             </div>
 
-            <div
-              class="w-full h-24 rounded-xl bg-gradient-to-r from-[#1c1917] via-[#292524] to-[#1c1917] p-2 overflow-hidden border border-amber-800/50 relative">
-              <svg class="w-full h-full" viewBox="0 0 520 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Interactive Media Hub: UI/UX Screenshot & Socket Architecture (No Video) -->
+            <div class="w-full rounded-xl overflow-hidden border border-amber-800/50 bg-slate-950 flex flex-col shadow-inner">
+              <!-- Tab Bar -->
+              <div class="flex items-center justify-between px-3 py-2 bg-slate-900/90 border-b border-slate-800 text-[11px] font-mono">
+                <div class="flex items-center gap-1">
+                  <button type="button" onclick="switchMediaTab('chat-application', 'screenshot')" id="btn-chat-application-screenshot"
+                    class="media-tab-btn active-amber px-2.5 py-1 rounded bg-amber-600 text-white font-semibold flex items-center gap-1 transition-all">
+                    <span class="material-symbols-outlined text-[13px]">desktop_windows</span>
+                    <span>UI/UX Screenshot</span>
+                  </button>
+                  <button type="button" onclick="switchMediaTab('chat-application', 'schema')" id="btn-chat-application-schema"
+                    class="media-tab-btn px-2.5 py-1 rounded text-slate-400 hover:text-white hover:bg-slate-800 flex items-center gap-1 transition-all">
+                    <span class="material-symbols-outlined text-[13px] text-amber-400">account_tree</span>
+                    <span>Socket Architecture</span>
+                  </button>
+                </div>
+                <span class="hidden sm:inline-flex items-center gap-1 text-[10px] text-amber-400 font-mono">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                  RSA-2048 Cryptography
+                </span>
+              </div>
+
+              <!-- Panels -->
+              <div id="panel-chat-application-screenshot" class="relative group/img overflow-hidden aspect-video bg-slate-950 flex items-center justify-center">
+                <img src="./assets/projects/chat-preview.jpg" alt="Secure Socket Chat UI Screenshot"
+                  class="w-full h-full object-cover object-top transition-transform duration-500 group-hover/img:scale-[1.02] cursor-pointer"
+                  onclick="openImageLightbox('./assets/projects/chat-preview.jpg', 'Secure Chat Client — End-to-End Encrypted Messaging (RSA 2048-bit)')">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute bottom-2.5 left-3 right-3 flex items-center justify-between pointer-events-none">
+                  <span class="px-2 py-0.5 rounded bg-slate-900/90 text-amber-300 border border-amber-800/60 text-[10px] font-mono font-medium backdrop-blur-sm">
+                    Asymmetric Handshake &amp; Telemetry
+                  </span>
+                  <button type="button" onclick="openImageLightbox('./assets/projects/chat-preview.jpg', 'Secure Chat Client — End-to-End Encrypted Messaging (RSA 2048-bit)')"
+                    class="pointer-events-auto px-2 py-1 rounded bg-black/60 hover:bg-amber-600 text-white text-[10px] font-mono flex items-center gap-1 backdrop-blur-sm transition-colors border border-white/10">
+                    <span class="material-symbols-outlined text-[12px]">zoom_in</span>
+                    <span>Expand</span>
+                  </button>
+                </div>
+              </div>
+
+              <div id="panel-chat-application-schema" class="hidden p-2 bg-gradient-to-r from-[#1c1917] via-[#292524] to-[#1c1917]">
+                <svg class="w-full h-full" viewBox="0 0 520 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g transform="translate(25, 18)">
                   <rect x="0" y="0" width="85" height="44" rx="6" fill="#292524" stroke="#f97316" stroke-width="1.5">
                   </rect>
@@ -1277,6 +1686,7 @@
                     Decrypt</text>
                 </g>
               </svg>
+              </div>
             </div>
 
             <div class="flex flex-col gap-4">
@@ -1352,7 +1762,7 @@
               </div>
             </div>
 
-            <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+            <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
               <a class="inline-flex items-center gap-1.5 text-xs font-mono text-primary font-medium hover:underline"
                 href="https://github.com/divyanshrajat/Chat-application" rel="noopener noreferrer" target="_blank">
                 <span class="material-symbols-outlined text-[16px]">code</span>
@@ -1366,7 +1776,7 @@
 
           <!-- PROJECT 6: DR_Portfolio -->
           <article
-            class="repo-card p-6 sm:p-8 rounded-2xl bg-white border border-outline-warm hover:border-secondary transition-all flex flex-col justify-between gap-6 shadow-museum hover:shadow-museum-lg relative group"
+            class="repo-card p-6 sm:p-8 rounded-2xl bg-white border border-outline-warm hover:border-secondary transition-all flex flex-col gap-5 shadow-museum hover:shadow-museum-lg relative group"
             data-categories="backend,original"
             data-keywords="dr_portfolio portfolio divyansh rajat tailwind editorial website open source web responsive">
             <div
@@ -1374,7 +1784,7 @@
             </div>
 
             <div
-              class="w-full h-24 rounded-xl bg-gradient-to-r from-[#032e3b] via-[#022c22] to-[#032e3b] p-2 overflow-hidden border border-teal-800/50 relative">
+              class="w-full h-44 sm:h-48 rounded-xl bg-gradient-to-r from-[#032e3b] via-[#022c22] to-[#032e3b] p-3 overflow-hidden border border-teal-800/50 relative flex items-center justify-center shadow-inner">
               <svg class="w-full h-full" viewBox="0 0 520 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g transform="translate(30, 15)">
                   <rect x="0" y="0" width="130" height="50" rx="6" fill="#083344" stroke="#22d3ee" stroke-width="1.5">
@@ -1487,7 +1897,7 @@
               </div>
             </div>
 
-            <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+            <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
               <a class="inline-flex items-center gap-1.5 text-xs font-mono text-secondary font-medium hover:underline"
                 href="https://github.com/divyanshrajat/DR_Portfolio" rel="noopener noreferrer" target="_blank">
                 <span class="material-symbols-outlined text-[16px]">code</span>
@@ -1512,6 +1922,33 @@
             onclick="resetFilters()">Reset All Filters</button>
         </div>
 
+      </div>
+    </section>
+
+
+    <!-- ============================================== -->
+    <!-- PHILOSOPHICAL MONOGRAPH 02: EMPIRICAL RIGOR    -->
+    <!-- ============================================== -->
+    <section class="py-10 bg-surface-container-low border-b border-outline-warm relative overflow-hidden">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+        <div class="relative p-6 sm:p-8 rounded-2xl bg-white border border-teal-200/70 shadow-museum flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div class="flex items-start gap-4 max-w-3xl">
+            <div class="w-11 h-11 rounded-xl bg-teal-600/10 border border-teal-500/20 text-teal-700 flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-2xl">science</span>
+            </div>
+            <div>
+              <p class="font-display font-medium text-base sm:text-lg text-on-surface leading-relaxed italic">
+                “What I cannot create, I do not understand. Know how to solve every problem that has been solved.”
+              </p>
+              <div class="flex flex-wrap items-center gap-2 mt-2.5 text-xs font-mono">
+                <span class="font-bold text-secondary">Richard Feynman</span>
+                <span class="text-on-surface-muted">•</span>
+                <span class="text-on-surface-variant">Applied to Deep Neural Verification &amp; Multimodal AI Forensics</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
@@ -2109,6 +2546,33 @@
       </div>
     </section>
 
+
+    <!-- ============================================== -->
+    <!-- PHILOSOPHICAL MONOGRAPH 03: CODE REALITY       -->
+    <!-- ============================================== -->
+    <section class="py-10 bg-white border-b border-outline-warm relative overflow-hidden">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+        <div class="relative p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-amber-50/40 via-white to-slate-50 border border-amber-200/70 shadow-museum flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div class="flex items-start gap-4 max-w-3xl">
+            <div class="w-11 h-11 rounded-xl bg-amber-600/10 border border-amber-500/20 text-amber-700 flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-2xl">terminal</span>
+            </div>
+            <div>
+              <p class="font-display font-medium text-base sm:text-lg text-on-surface leading-relaxed italic">
+                “Talk is cheap. Show me the code. Software is like entropy: it is difficult to grasp, weighs nothing, and obeys the second law of thermodynamics.”
+              </p>
+              <div class="flex flex-wrap items-center gap-2 mt-2.5 text-xs font-mono">
+                <span class="font-bold text-amber-800">Linus Torvalds &amp; Norman Augustine</span>
+                <span class="text-on-surface-muted">•</span>
+                <span class="text-on-surface-variant">Systems Architecture &amp; Empirical Software Craftsmanship</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- ========================================== -->
     <!-- EDUCATION, CERTIFICATIONS & ACHIEVEMENTS   -->
     <!-- ========================================== -->
@@ -2578,6 +3042,11 @@
         <span class="font-mono text-xs text-on-surface-muted truncate max-w-xs sm:max-w-md"
           id="modalRepoLinkText">github.com/divyanshrajat/...</span>
         <div class="flex items-center gap-3">
+          <a class="hidden px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs font-mono font-medium transition-colors flex items-center gap-1.5 shadow-sm"
+            href="#" id="modalYoutubeBtn" rel="noopener noreferrer" target="_blank">
+            <span class="material-symbols-outlined text-[16px]">play_circle</span>
+            <span>Watch Demo</span>
+          </a>
           <a class="px-4 py-2 rounded-lg bg-surface-container hover:bg-slate-200 text-on-surface text-xs font-mono font-medium transition-colors flex items-center gap-1.5 border border-outline-variant"
             href="#" id="modalGithubBtn" rel="noopener noreferrer" target="_blank">
             <span class="material-symbols-outlined text-[16px] text-primary">code</span>
@@ -2643,12 +3112,38 @@
   <!-- ============================================== -->
   <!-- JAVASCRIPT: FILTERING, MODALS & INTERACTION    -->
   <!-- ============================================== -->
+  
+  <!-- ============================================== -->
+  <!-- HIGH-RESOLUTION IMAGE LIGHTBOX MODAL          -->
+  <!-- ============================================== -->
+  <div id="imageLightboxModal"
+    class="fixed inset-0 z-[120] bg-slate-950/90 backdrop-blur-md hidden flex flex-col items-center justify-center p-4 sm:p-6"
+    onclick="if(event.target === this) closeImageLightbox()">
+    <div class="w-full max-w-5xl flex items-center justify-between pb-3 text-white">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-blue-400">desktop_windows</span>
+        <span id="lightboxCaption" class="font-display font-semibold text-sm">System UI/UX Screenshot</span>
+      </div>
+      <button onclick="closeImageLightbox()"
+        class="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors">
+        <span class="material-symbols-outlined text-2xl">close</span>
+      </button>
+    </div>
+    <div class="max-w-5xl max-h-[85vh] overflow-hidden rounded-2xl border border-white/20 shadow-2xl bg-black flex items-center justify-center">
+      <img id="lightboxImage" src="" alt="Full view" class="w-full h-auto max-h-[80vh] object-contain">
+    </div>
+  </div>
+
   <script>
     const REPO_DETAILS = {
       'checkrealityai': {
         title: 'CheckReality AI — Multimodal Deepfake & Misinformation Detection Platform',
         subTitle: 'Original B.Tech Capstone Project • Supervised by Dr. Manpreet Kaur (BBSBEC / IKGPTU)',
         github: 'https://github.com/divyanshrajat/CheckRealityAI',
+        screenshot: './assets/projects/checkreality-preview.jpg',
+        screenshotCaption: 'CheckReality AI — Forensic Dashboard: Dual Face-Swap Heatmaps, Audio Spectrogram & 99.60% Bayesian Fusion',
+        youtubeId: 'CtP4qNWQWBU',
+        youtubeUrl: 'https://youtu.be/CtP4qNWQWBU?si=eS0ZSC9sBIiOpwou',
         description: 'CheckReality AI is an end-to-end multimodal deepfake detection system constructed to evaluate synthetic media and textual misinformation across four synchronized modalities: Audio, Image, Video, and Text. Powered by PyTorch 2.5, Celery asynchronous workers, Redis broker, and MongoDB.',
         metrics: [
           { label: 'Audio Spoofing', val: '99.60% Acc', desc: 'ResNet-18 (SpecAugment) on ASVspoof 2019 LA' },
@@ -2668,6 +3163,10 @@
         title: 'NyayaVault — Court-Ready Evidence & Digital Document Management System',
         subTitle: 'Smart India Hackathon 2026 (Problem ID: SIH26190) • Team S.W.O.R.D.',
         github: 'https://github.com/divyanshrajat/NyayaVault',
+        screenshot: './assets/projects/nyayavault-preview.jpg',
+        screenshotCaption: 'NyayaVault — Operational Dashboard: In-Browser AI, SHA-256 Hash Chain & Section 63 BNSS Verification (Extracted from Video)',
+        youtubeId: '5C_TEwFJf4Y',
+        youtubeUrl: 'https://youtu.be/5C_TEwFJf4Y?si=wAVIC4UDIudQt6bZ',
         description: 'NyayaVault is a 100% offline, air-gapped legal evidence vault designed for the Indian Judicial System. It runs client-side quantized NLP models in browser memory and maintains an append-only SHA-256 chain of custody complying with Section 63 of Bharatiya Nagarik Suraksha Sanhita (BNSS).',
         metrics: [
           { label: 'Network Footprint', val: '0 KB', desc: '100% Air-Gapped & Offline execution' },
@@ -2687,6 +3186,10 @@
         title: 'Universal Log Pre-processing Framework (ULPF)',
         subTitle: 'Smart India Hackathon 2026 (Problem ID: SIH26156) • NTRO • Lead Architect',
         github: 'https://github.com/divyanshrajat/ULPF',
+        screenshot: './assets/projects/ulpf-preview.jpg',
+        screenshotCaption: 'ULPF — Systems Telemetry Dashboard: 125k EPS, Sub-0.8ms Latency, OCSF/ECS Schema Mapping & Qwen2.5-Coder Engine',
+        youtubeId: 'D75t5Tz5PS0',
+        youtubeUrl: 'https://youtu.be/D75t5Tz5PS0?si=rZXzU0oIXCeAGLRu',
         description: 'ULPF is an adaptive, lossless, air-gapped log preprocessing middleware created for the National Technical Research Organisation (NTRO). It standardizes heterogeneous raw network and server logs into OCSF and ECS canonical formats without slowing down ingestion pipelines.',
         metrics: [
           { label: 'Hot-Path Latency', val: '< 0.8ms', desc: 'Zero LLM in the live data forwarding path' },
@@ -2706,6 +3209,10 @@
         title: 'AI-Based Plagiarism & Writing Analysis System',
         subTitle: 'Original NLP Systems Project • Academic Integrity Scanner',
         github: 'https://github.com/divyanshrajat/AI_Plagiarism_Detection_System',
+        screenshot: './assets/projects/plagiarism-preview.jpg',
+        screenshotCaption: 'AI Plagiarism Inspector: Dense Vector Embedding Space, MiniLM-L6-v2 Similarity & Stylometric Analysis',
+        youtubeId: 'QRrKFV5rzgk',
+        youtubeUrl: 'https://youtu.be/QRrKFV5rzgk?si=fsLAM3sf6n26ax0O',
         description: 'A Python and Flask application that evaluates student documents through semantic sentence embeddings and stylometric perplexity heuristics, overcoming traditional limitations of verbatim keyword matching.',
         metrics: [
           { label: 'Inference Speed', val: '~420ms', desc: 'Evaluates 5,000 token documents' },
@@ -2725,6 +3232,10 @@
         title: 'Secure Client-Server Socket Chat with RSA Cryptography',
         subTitle: 'Forked & Cryptographically Extended (Original: Haldhardwivedi)',
         github: 'https://github.com/divyanshrajat/Chat-application',
+        screenshot: './assets/projects/chat-preview.jpg',
+        screenshotCaption: 'Secure Chat Client: End-to-End Encrypted Messaging, RSA 2048-bit Key Exchange & TCP Socket Telemetry',
+        youtubeId: null,
+        youtubeUrl: null,
         description: 'Multi-threaded TCP network communication system implementing client-server socket abstractions and public-key asymmetric encryption. Explores thread-safe message dispatching, raw byte serialization, and zero-knowledge packet relaying.',
         metrics: [
           { label: 'Keypair Standard', val: 'RSA 2048-bit', desc: 'Public/private key asymmetric encryption' },
@@ -2743,6 +3254,10 @@
         title: 'DR_Portfolio — AI/ML & Backend Developer Portfolio Codebase',
         subTitle: 'Modern Architectural Engineering Monograph & Open-Source Repository',
         github: 'https://github.com/divyanshrajat/DR_Portfolio',
+        screenshot: null,
+        screenshotCaption: null,
+        youtubeId: null,
+        youtubeUrl: null,
         description: 'The production open-source codebase powering this personal AI/ML and backend developer portfolio and research monograph. Engineered with a clean architectural light design system, zero heavy external framework dependencies, real-time client-side search indexing across all 6 GitHub repositories, interactive deep architecture inspector modals, responsive typography scales, and seamless GitHub Pages deployment.',
         metrics: [
           { label: 'Lighthouse Score', val: '100 / 100', desc: 'Zero render-blocking scripts & instant First Contentful Paint' },
@@ -2761,6 +3276,7 @@
     };
 
     // Modal Architecture Inspector
+    // Modal Architecture Inspector
     function openModal(repoId) {
       const data = REPO_DETAILS[repoId];
       if (!data) return;
@@ -2769,6 +3285,74 @@
       document.getElementById('modalSubTitle').textContent = data.subTitle;
       document.getElementById('modalRepoLinkText').textContent = data.github;
       document.getElementById('modalGithubBtn').href = data.github;
+
+      const modalYoutubeBtn = document.getElementById('modalYoutubeBtn');
+      if (modalYoutubeBtn) {
+        if (data.youtubeUrl) {
+          modalYoutubeBtn.href = data.youtubeUrl;
+          modalYoutubeBtn.classList.remove('hidden');
+        } else {
+          modalYoutubeBtn.classList.add('hidden');
+        }
+      }
+
+      let mediaSection = '';
+      if (data.youtubeId || data.screenshot) {
+        mediaSection = `
+          <div class="p-4 sm:p-5 rounded-2xl bg-slate-900 border border-slate-800 text-white flex flex-col gap-3 shadow-inner">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <span class="text-slate-300 font-semibold flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[16px] text-blue-400">deployed_code</span>
+                Production Artifacts &amp; Live Verification
+              </span>
+              <div class="flex items-center gap-2">
+                ${data.youtubeId ? `<span class="px-2 py-0.5 rounded bg-red-950/80 text-red-400 border border-red-800/60 text-[10px]">YouTube Demo Verified</span>` : ''}
+                ${data.screenshot ? `<span class="px-2 py-0.5 rounded bg-blue-950/80 text-blue-400 border border-blue-800/60 text-[10px]">UI/UX Capture</span>` : ''}
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-1 ${data.youtubeId && data.screenshot ? 'md:grid-cols-2' : ''} gap-4">
+              ${data.screenshot ? `
+                <div class="flex flex-col gap-1.5">
+                  <span class="text-[11px] font-mono text-slate-400">System UI/UX Screenshot:</span>
+                  <div class="relative group/modalimg rounded-xl overflow-hidden border border-slate-700 bg-black aspect-video cursor-pointer"
+                       onclick="openImageLightbox('${data.screenshot}', '${data.screenshotCaption || data.title}')">
+                    <img src="${data.screenshot}" alt="${data.title}" class="w-full h-full object-cover group-hover/modalimg:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/modalimg:opacity-100 flex items-center justify-center transition-opacity">
+                      <span class="px-3 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-mono flex items-center gap-1 shadow-lg">
+                        <span class="material-symbols-outlined text-[16px]">zoom_in</span>
+                        Expand Screenshot
+                      </span>
+                    </div>
+                  </div>
+                  <span class="text-[10px] text-slate-400 truncate">${data.screenshotCaption || 'Production UI View'}</span>
+                </div>
+              ` : ''}
+
+              ${data.youtubeId ? `
+                <div class="flex flex-col gap-1.5">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[11px] font-mono text-slate-400">Demo Video Walkthrough:</span>
+                    <a href="${data.youtubeUrl}" target="_blank" rel="noopener noreferrer" class="text-[10px] font-mono text-red-400 hover:text-red-300 flex items-center gap-0.5">
+                      <span>Open on YouTube</span>
+                      <span class="material-symbols-outlined text-[12px]">open_in_new</span>
+                    </a>
+                  </div>
+                  <div class="relative rounded-xl overflow-hidden border border-slate-700 bg-black aspect-video">
+                    <iframe class="w-full h-full"
+                      src="https://www.youtube-nocookie.com/embed/${data.youtubeId}?rel=0"
+                      title="${data.title} Demo Walkthrough"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                  <span class="text-[10px] text-slate-400">Live system execution and end-to-end user journey</span>
+                </div>
+              ` : ''}
+            </div>
+          </div>
+        `;
+      }
 
       let metricsHtml = '<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-center">';
       data.metrics.forEach(m => {
@@ -2799,6 +3383,8 @@
       stackHtml += '</div>';
 
       document.getElementById('modalBody').innerHTML = `
+        ${mediaSection}
+
         <div class="flex flex-col gap-2">
           <span class="text-xs font-mono uppercase text-secondary font-semibold">Overview & Problem Statement</span>
           <p class="text-sm text-on-surface-variant leading-relaxed">${data.description}</p>
@@ -2824,9 +3410,113 @@
       document.body.style.overflow = 'hidden';
     }
 
+    // ==============================================
+    // INTERACTIVE MEDIA HUB FUNCTIONS
+    // ==============================================
+    function switchMediaTab(repoId, tabType) {
+      const tabs = ['screenshot', 'video', 'schema'];
+      tabs.forEach(t => {
+        const panel = document.getElementById(`panel-${repoId}-${t}`);
+        const btn = document.getElementById(`btn-${repoId}-${t}`);
+        if (panel) {
+          if (t === tabType) {
+            panel.classList.remove('hidden');
+          } else {
+            panel.classList.add('hidden');
+          }
+        }
+        if (btn) {
+          if (t === tabType) {
+            if (repoId === 'nyayavault') {
+              btn.className = 'media-tab-btn active-emerald px-2.5 py-1 rounded bg-emerald-600 text-white font-semibold flex items-center gap-1 transition-all';
+            } else if (repoId === 'ai-plagiarism') {
+              btn.className = 'media-tab-btn active-purple px-2.5 py-1 rounded bg-purple-600 text-white font-semibold flex items-center gap-1 transition-all';
+            } else if (repoId === 'chat-application') {
+              btn.className = 'media-tab-btn active-amber px-2.5 py-1 rounded bg-amber-600 text-white font-semibold flex items-center gap-1 transition-all';
+            } else {
+              btn.className = 'media-tab-btn active px-2.5 py-1 rounded bg-blue-600 text-white font-semibold flex items-center gap-1 transition-all';
+            }
+          } else {
+            btn.className = 'media-tab-btn px-2.5 py-1 rounded text-slate-400 hover:text-white hover:bg-slate-800 flex items-center gap-1 transition-all';
+          }
+        }
+      });
+
+      // Stop audio immediately if switching AWAY from video
+      if (tabType !== 'video') {
+        const wrap = document.getElementById(`yt-wrap-${repoId}`);
+        if (wrap && wrap.querySelector('iframe')) {
+          const repo = REPO_DETAILS[repoId];
+          const ytUrl = repo ? repo.youtubeUrl : '#';
+          wrap.innerHTML = `
+            <div class="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950/40 p-4 text-center cursor-pointer group/yt"
+              onclick="loadYouTubeVideo('${repoId}', '${repo.youtubeId}')">
+              <img src="${repo.screenshot}" alt="Video thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-25 group-hover/yt:opacity-35 transition-opacity">
+              <div class="relative z-10 w-14 h-14 rounded-full bg-red-600 group-hover/yt:bg-red-500 text-white flex items-center justify-center shadow-lg shadow-red-600/40 transform group-hover/yt:scale-110 transition-all">
+                <span class="material-symbols-outlined text-3xl">play_arrow</span>
+              </div>
+              <div class="relative z-10 mt-3">
+                <p class="font-display font-bold text-sm text-white">Watch ${repo.title.split('—')[0].trim()} Walkthrough</p>
+                <div class="flex items-center justify-center gap-2 mt-1">
+                  <span class="text-red-400 font-semibold text-[11px] font-mono">YouTube</span>
+                  <a href="${ytUrl}" target="_blank" rel="noopener noreferrer"
+                     class="px-2 py-0.5 rounded bg-red-600/80 hover:bg-red-600 text-white text-[10px] font-mono flex items-center gap-0.5 transition-colors"
+                     onclick="event.stopPropagation()">
+                    <span>Open Link ↗</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+      } else {
+        // Tab is video: load with autoplay=0 so NO audio blasts automatically
+        const repo = REPO_DETAILS[repoId];
+        if (repo && repo.youtubeId) {
+          loadYouTubeVideo(repoId, repo.youtubeId, false);
+        }
+      }
+    }
+
+    function loadYouTubeVideo(repoId, videoId, autoPlay = false) {
+      const wrap = document.getElementById(`yt-wrap-${repoId}`);
+      if (!wrap) return;
+      wrap.innerHTML = `
+        <iframe class="w-full h-full rounded-b-xl"
+          src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=${autoPlay ? 1 : 0}&rel=0"
+          title="Demo Video Walkthrough"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      `;
+    }
+
+    // Lightbox Modal Functions
+    function openImageLightbox(src, caption) {
+      const modal = document.getElementById('imageLightboxModal');
+      const img = document.getElementById('lightboxImage');
+      const cap = document.getElementById('lightboxCaption');
+      if (modal && img) {
+        img.src = src;
+        if (cap) cap.textContent = caption || 'System Screenshot';
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeImageLightbox() {
+      const modal = document.getElementById('imageLightboxModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
     function closeModal() {
       document.getElementById('projectModal').classList.add('hidden');
       document.body.style.overflow = 'auto';
+      const modalBody = document.getElementById('modalBody');
+      if (modalBody) modalBody.innerHTML = ''; // Stops any playing video/audio immediately
     }
 
     // Resume Modal
@@ -2950,6 +3640,7 @@
       if (e.key === 'Escape') {
         closeModal();
         closeResumeModal();
+        closeImageLightbox();
       }
       if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
         e.preventDefault();
