@@ -95,7 +95,7 @@ DR_PORTFOLIO/
 * **Institution:** Baba Banda Singh Bahadur Engineering College (BBSBEC), PTU
 * **Email:** [divyanshrajat1999@gmail.com](mailto:divyanshrajat1999@gmail.com)
 * **GitHub:** [@divyanshrajat](https://github.com/divyanshrajat)
-* **LinkedIn:** [linkedin.com/in/divyansh-rajat-4857a01a4](https://www.linkedin.com/in/divyansh-rajat-4857a01a4)
+* **LinkedIn:** [linkedin.com/in/divyanshrajat](https://www.linkedin.com/in/divyanshrajat)
 
 ---
 *Architectural Monograph &copy; 2026 Divyansh Rajat. All rights reserved.*
