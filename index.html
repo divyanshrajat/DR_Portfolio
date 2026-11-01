@@ -895,7 +895,7 @@
           <article
             class="repo-card p-6 sm:p-8 rounded-2xl bg-white border border-outline-warm hover:border-secondary transition-all flex flex-col justify-between gap-6 shadow-museum hover:shadow-museum-lg relative group"
             data-categories="ai-multimodal,cybersecurity,backend,original"
-            data-keywords="nyayavault smart india hackathon sih26190 team sword evidence legal webgpu wasm lamini flan t5 bnss sha-256 ocr">
+            data-keywords="nyayavault smart india hackathon sih26190 team sword evidence legal webgpu wasm lamini flan t5 bsa sha-256 ocr">
             <div
               class="absolute top-0 left-0 right-0 h-1.5 rounded-t-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500">
             </div>
@@ -935,7 +935,7 @@
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
                 <div class="absolute bottom-2.5 left-3 right-3 flex items-center justify-between pointer-events-none">
                   <span class="px-2 py-0.5 rounded bg-slate-900/90 text-emerald-300 border border-emerald-800/60 text-[10px] font-mono font-medium backdrop-blur-sm">
-                    In-Browser WebGPU &amp; Section 63 BNSS Vault
+                    In-Browser WebGPU &amp; Section 63 BSA Vault
                   </span>
                   <button type="button" onclick="openImageLightbox('./assets/projects/nyayavault-preview.jpg', 'NyayaVault — Operational Dashboard (Extracted from Demo Video)')"
                     class="pointer-events-auto px-2 py-1 rounded bg-black/60 hover:bg-emerald-600 text-white text-[10px] font-mono flex items-center gap-1 backdrop-blur-sm transition-colors border border-white/10">
@@ -1005,7 +1005,7 @@
                   <text x="24" y="22" text-anchor="middle" fill="#5eead4" font-family="monospace" font-size="8"
                     font-weight="bold">SEC 63</text>
                   <text x="24" y="32" text-anchor="middle" fill="#ccfbf1" font-family="monospace"
-                    font-size="7">BNSS</text>
+                    font-size="7">BSA</text>
                 </g>
               </svg>
               </div>
@@ -1036,7 +1036,7 @@
                 <p class="text-xs sm:text-sm text-on-surface-variant mt-2 leading-relaxed">100% offline, air-gapped
                   legal evidence vault designed for the Indian Judicial System. Executes client-side quantized NLP
                   (LaMini-Flan-T5-77M) directly in-browser using WebGPU/WASM, backed by an append-only SHA-256
-                  cryptographic chain complying with Section 63 BNSS.</p>
+                  cryptographic chain complying with Section 63 BSA.</p>
               </div>
 
               <div
@@ -1052,7 +1052,7 @@
                     class="font-semibold text-cyan-900">SHA-256 Chain</span></div>
                 <span class="text-cyan-300">→</span>
                 <div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span><span
-                    class="font-semibold text-amber-900">BNSS 63 Report</span></div>
+                    class="font-semibold text-amber-900">BSA 63 Report</span></div>
               </div>
 
               <div
@@ -1070,7 +1070,7 @@
                   <div class="text-[10px] text-cyan-900 uppercase font-semibold">Hash Chain</div>
                 </div>
                 <div class="p-1.5 rounded-lg bg-indigo-50/80 border border-indigo-100">
-                  <div class="text-indigo-700 font-extrabold text-base">BNSS 63</div>
+                  <div class="text-indigo-700 font-extrabold text-base">BSA 63</div>
                   <div class="text-[10px] text-indigo-900 uppercase font-semibold">Compliance</div>
                 </div>
               </div>
@@ -2480,7 +2480,7 @@
                   Hash Chains</span>
                 <span
                   class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant text-on-surface font-medium">Section
-                  63 BNSS Legal Rules</span>
+                  63 BSA Legal Rules</span>
                 <span
                   class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant text-on-surface font-medium">Secure
                   Coding</span>
@@ -3164,10 +3164,10 @@
         subTitle: 'Smart India Hackathon 2026 (Problem ID: SIH26190) • Team S.W.O.R.D.',
         github: 'https://github.com/divyanshrajat/NyayaVault',
         screenshot: './assets/projects/nyayavault-preview.jpg',
-        screenshotCaption: 'NyayaVault — Operational Dashboard: In-Browser AI, SHA-256 Hash Chain & Section 63 BNSS Verification (Extracted from Video)',
+        screenshotCaption: 'NyayaVault — Operational Dashboard: In-Browser AI, SHA-256 Hash Chain & Section 63 BSA Verification (Extracted from Video)',
         youtubeId: '5C_TEwFJf4Y',
         youtubeUrl: 'https://youtu.be/5C_TEwFJf4Y?si=wAVIC4UDIudQt6bZ',
-        description: 'NyayaVault is a 100% offline, air-gapped legal evidence vault designed for the Indian Judicial System. It runs client-side quantized NLP models in browser memory and maintains an append-only SHA-256 chain of custody complying with Section 63 of Bharatiya Nagarik Suraksha Sanhita (BNSS).',
+        description: 'NyayaVault is a 100% offline, air-gapped legal evidence vault designed for the Indian Judicial System. It runs client-side quantized NLP models in browser memory and maintains an append-only SHA-256 chain of custody complying with Section 63 of Bharatiya Sakshya Adhiniyam (BSA).',
         metrics: [
           { label: 'Network Footprint', val: '0 KB', desc: '100% Air-Gapped & Offline execution' },
           { label: 'Local In-Browser AI', val: 'LaMini-Flan-T5-77M', desc: 'Quantized via Transformers.js v3 & WebGPU/WASM' },
@@ -3178,7 +3178,7 @@
           '1. In-Browser Model Execution: Uses Transformers.js v3 to run quantized models locally inside the browser with WebGPU hardware acceleration, ensuring sensitive case files never leave the machine.',
           '2. Client-Side OCR & Entity Extraction: Employs local Tesseract.js and PDF parsers to extract text from FIRs, forensic medical certificates, and police charge sheets.',
           '3. Tamper-Evident Hash Chain: Every view, upload, redaction, or sharing event appends a cryptographically linked SHA-256 block ledger row.',
-          '4. BNSS Section 63 Legal Discovery Export: Generates court-admissible electronic record certificates with cryptographic integrity verification.'
+          '4. BSA Section 63 Legal Discovery Export: Generates court-admissible electronic record certificates with cryptographic integrity verification.'
         ],
         stack: ['Next.js App Router', 'TypeScript', 'Prisma ORM', 'Transformers.js v3', 'WebGPU / WASM', 'SQLite / PostgreSQL', 'Tesseract.js']
       },
