@@ -678,7 +678,7 @@
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
                 <div class="absolute bottom-2.5 left-3 right-3 flex items-center justify-between pointer-events-none">
                   <span class="px-2 py-0.5 rounded bg-slate-900/90 text-cyan-400 border border-cyan-800/60 text-[10px] font-mono font-medium backdrop-blur-sm">
-                    Dual Heatmap &amp; 99.60% Bayesian Fusion
+                    Dual Heatmap &amp; Bayesian Fusion
                   </span>
                   <button type="button" onclick="openImageLightbox('./assets/projects/checkreality-preview.jpg', 'CheckReality AI — Multimodal Forensics Dashboard')"
                     class="pointer-events-auto px-2 py-1 rounded bg-black/60 hover:bg-blue-600 text-white text-[10px] font-mono flex items-center gap-1 backdrop-blur-sm transition-colors border border-white/10">
@@ -817,8 +817,8 @@
                   <div class="text-[10px] text-indigo-900 uppercase font-semibold">Image Faces</div>
                 </div>
                 <div class="p-1.5 rounded-lg bg-purple-50/80 border border-purple-100">
-                  <div class="text-purple-700 font-extrabold text-base">99.69%</div>
-                  <div class="text-[10px] text-purple-900 uppercase font-semibold">Video FF++</div>
+                  <div class="text-purple-700 font-extrabold text-base">82.94%</div>
+                  <div class="text-[10px] text-purple-900 uppercase font-semibold">Video (Subject-Disjoint CV)</div>
                 </div>
                 <div class="p-1.5 rounded-lg bg-teal-50/80 border border-teal-100">
                   <div class="text-teal-700 font-extrabold text-base">99.95%</div>
@@ -2345,8 +2345,8 @@
                   class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant text-on-surface font-medium">SpecAugment
                   Audio</span>
                 <span
-                  class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant text-on-surface font-medium">Bayesian
-                  &amp; Platt Scaling</span>
+                  class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant text-on-surface font-medium">Bayesian Fusion
+                  &amp; Temperature Scaling</span>
               </div>
             </div>
           </div>
@@ -3141,14 +3141,14 @@
         subTitle: 'Original B.Tech Capstone Project • Supervised by Dr. Manpreet Kaur (BBSBEC / IKGPTU)',
         github: 'https://github.com/divyanshrajat/CheckRealityAI',
         screenshot: './assets/projects/checkreality-preview.jpg',
-        screenshotCaption: 'CheckReality AI — Forensic Dashboard: Dual Face-Swap Heatmaps, Audio Spectrogram & 99.60% Bayesian Fusion',
+        screenshotCaption: 'CheckReality AI — Forensic Dashboard: Dual Face-Swap Heatmaps, Audio Spectrogram & Bayesian Fusion',
         youtubeId: 'CtP4qNWQWBU',
         youtubeUrl: 'https://youtu.be/CtP4qNWQWBU?si=eS0ZSC9sBIiOpwou',
         description: 'CheckReality AI is an end-to-end multimodal deepfake detection system constructed to evaluate synthetic media and textual misinformation across four synchronized modalities: Audio, Image, Video, and Text. Powered by PyTorch 2.5, Celery asynchronous workers, Redis broker, and MongoDB.',
         metrics: [
           { label: 'Audio Spoofing', val: '99.60% Acc', desc: 'ResNet-18 (SpecAugment) on ASVspoof 2019 LA' },
           { label: 'Image Deepfakes', val: '99.40% Acc', desc: 'EfficientNet-B3 (TTA) on 140k Faces' },
-          { label: 'Video Manipulation', val: '99.69% Acc', desc: 'EfficientNet-B0 + Attentive BiLSTM on FF++ C23' },
+          { label: 'Video Manipulation', val: '82.94% Acc', desc: 'EfficientNet-B0 + Attentive BiLSTM; 5-fold subject-disjoint CV on 3,500 FF++ C23 videos (99.69% on a balanced single split)' },
           { label: 'Text Misinfo / AI', val: '99.95% / 100%', desc: 'Fine-tuned RoBERTa-base sequence classifiers' }
         ],
         workflow: [
